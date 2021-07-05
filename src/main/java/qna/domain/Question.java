@@ -1,11 +1,8 @@
-package qna.question;
+package qna.domain;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.SQLDelete;
-import qna.BaseTimeEntity;
-import qna.answer.Answer;
-import qna.user.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;

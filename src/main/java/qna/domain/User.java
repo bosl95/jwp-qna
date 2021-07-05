@@ -1,11 +1,8 @@
-package qna.user;
+package qna.domain;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import qna.BaseTimeEntity;
-import qna.answer.Answer;
 import qna.exception.UnAuthorizedException;
-import qna.question.Question;
 
 import javax.persistence.*;
 import java.util.ArrayList;

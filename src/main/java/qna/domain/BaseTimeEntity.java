@@ -1,4 +1,4 @@
-package qna;
+package qna.domain;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

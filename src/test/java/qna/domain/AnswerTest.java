@@ -1,4 +1,4 @@
-package qna.answer;
+package qna.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -7,10 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import qna.exception.NotFoundException;
 import qna.exception.UnAuthorizedException;
-import qna.question.Question;
-import qna.question.QuestionTest;
-import qna.user.User;
-import qna.user.UserTest;
 
 import javax.persistence.EntityManager;
 

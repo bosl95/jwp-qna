@@ -1,11 +1,9 @@
-package qna.deletehistory;
+package qna.domain;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
-import qna.ContentType;
-import qna.user.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

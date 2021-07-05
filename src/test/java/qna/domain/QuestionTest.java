@@ -1,13 +1,11 @@
-package qna.question;
+package qna.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import qna.answer.Answer;
-import qna.user.User;
-import qna.user.UserTest;
+import qna.repository.QuestionRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
