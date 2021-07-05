@@ -14,7 +14,7 @@ import qna.answer.Answer;
 import qna.answer.AnswerRepository;
 import qna.deletehistory.DeleteHistory;
 import qna.deletehistory.DeleteHistoryService;
-import qna.question.QnaService;
+import qna.QnaService;
 import qna.question.Question;
 import qna.question.QuestionRepository;
 
