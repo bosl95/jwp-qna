@@ -1,31 +1,58 @@
-package qna.domain;
+package qna.user;
 
-import qna.UnAuthorizedException;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import qna.BaseTimeEntity;
+import qna.answer.Answer;
+import qna.exception.UnAuthorizedException;
+import qna.question.Question;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class User {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
+public class User extends BaseTimeEntity {
     public static final GuestUser GUEST_USER = new GuestUser();
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String userId;
-    private String password;
-    private String name;
+
+    @Column(length = 50)
     private String email;
 
-    private User() {
+    @Column(length = 20, nullable = false)
+    private String name;
+
+    @Column(length = 20, nullable = false)
+    private String password;
+
+    @Column(length = 20, nullable = false, unique = true)
+    private String userId;
+
+    @OneToMany(mappedBy = "writer")
+    private List<Question> questions = new ArrayList<>();
+
+    @OneToMany(mappedBy = "writer")
+    private List<Answer> answers = new ArrayList<>();
+
+    public User(String name, String email, String password, String userId) {
+        this(null, password, name, email, userId);
     }
 
-    public User(String userId, String password, String name, String email) {
-        this(null, userId, password, name, email);
-    }
-
-    public User(Long id, String userId, String password, String name, String email) {
+    public User(Long id, String name, String email, String password, String userId) {
         this.id = id;
-        this.userId = userId;
-        this.password = password;
         this.name = name;
         this.email = email;
+        this.password = password;
+        this.userId = userId;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public void update(User loginUser, User target) {
@@ -62,44 +89,20 @@ public class User {
         return false;
     }
 
-    public Long getId() {
-        return id;
+    public void addQuestion(Question question) {
+        questions.add(question);
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void addAnswer(Answer answer) {
+        answers.add(answer);
     }
 
-    public String getUserId() {
-        return userId;
+    public List<Answer> getAnswers() {
+        return answers;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public List<Question> getQuestions() {
+        return questions;
     }
 
     @Override
