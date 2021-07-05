@@ -74,7 +74,7 @@ class BaseTimeEntityTest {
 
         // when
         LocalDateTime updatedAt = savedAnswer.getUpdatedAt();
-//        savedAnswer.toQuestion(question2); // TODO : 다른 걸로!
+        savedAnswer.toQuestion(question2);
         entityManager.flush();
 
         // then
