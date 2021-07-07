@@ -35,6 +35,7 @@ public class AnswerTest {
         User writer = new User("pomo", "pomo@gmail.com", "password", "pomo@gmail.com");
 
         // when
+        writer.addAnswer(answer);
         Answer registeredAnswer = answer.writeBy(writer);
 
         // then

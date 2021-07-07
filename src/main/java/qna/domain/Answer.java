@@ -44,8 +44,8 @@ public class Answer extends BaseTimeEntity {
             throw new NotFoundException();
         }
 
-        writeBy(writer);
-        toQuestion(question);
+        this.writer = writer;
+        this.question = question;
         this.contents = contents;
     }
 
@@ -55,7 +55,6 @@ public class Answer extends BaseTimeEntity {
 
     public void toQuestion(Question question) {
         this.question = question;
-        question.addAnswer(this);
     }
 
     public Long getId() {
@@ -72,7 +71,6 @@ public class Answer extends BaseTimeEntity {
 
     public Answer writeBy(User user) {
         this.writer = user;
-        user.addAnswer(this);
         return this;
     }
 

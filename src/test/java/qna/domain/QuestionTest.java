@@ -38,7 +38,8 @@ public class QuestionTest {
         User writer = new User("pomo", "pomo@gmail.com", "password", "pomo@gmail.com");
 
         // when
-        Question question = new Question("title", "contents").writeBy(writer);
+        Question question = new Question("title", "contents");
+        writer.addQuestion(question);
 
         // then
         assertThat(writer.getQuestions()).containsExactly(question);
@@ -51,6 +52,8 @@ public class QuestionTest {
         Answer answer2 = new Answer(javajigi, question, "answer");
 
         // when
+        question.addAnswer(answer);
+        question.addAnswer(answer2);
         List<Answer> answers = question.getAnswers();
 
         // then

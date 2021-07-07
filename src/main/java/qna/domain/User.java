@@ -87,11 +87,13 @@ public class User extends BaseTimeEntity {
     }
 
     public void addQuestion(Question question) {
+        question.writeBy(this);
         questions.add(question);
     }
 
     public void addAnswer(Answer answer) {
         answers.add(answer);
+        answer.writeBy(this);
     }
 
     public List<Answer> getAnswers() {

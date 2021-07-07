@@ -41,7 +41,6 @@ class BaseTimeEntityTest {
         questionRepository.save(question2);
     }
 
-
     @DisplayName("Answer을 저장하면 생성 시간과 수정 시간이 자동 생성")
     @Test
     void save() {
